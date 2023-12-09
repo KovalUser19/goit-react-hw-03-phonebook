@@ -1,0 +1,11 @@
+.items{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.button{
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
