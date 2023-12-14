@@ -2,6 +2,7 @@ import { Component } from "react"
 import { nanoid } from "nanoid"
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
+import { Filter } from "./Filter/Filter";
 import css from "./App.module.css"
 
 export class App extends Component{
@@ -63,6 +64,7 @@ export class App extends Component{
        <h1>Phonebook</h1>
        <ContactForm addContact={this.addContact}></ContactForm>
        <h2>Contacts</h2>
+       <Filter/>
        <ContactList contacts={this.state.contacts} deleteContact={this.onDeleteContact}>
        </ContactList>
     </div>
