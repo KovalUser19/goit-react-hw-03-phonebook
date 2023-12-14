@@ -13,6 +13,7 @@ export class App extends Component{
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
+    filter:'',
   }
   componentDidMount() {
     const localData = localStorage.getItem('contacts')
@@ -57,14 +58,20 @@ export class App extends Component{
     this.setState({ filter: e.target.value })
   }
 
+  getVisibleContact = () => {
+    const {filter, contacts} = this.state
+    return contacts.filter(contact=>contact.name.toLowerCase().includes(filter.toLowerCase()))
+  }
+
   render() {
+    const {filter} = this.state
     console.log('contacts :>> ', this.state)
    return (
      <div className={css.wrapper}>
        <h1>Phonebook</h1>
        <ContactForm addContact={this.addContact}></ContactForm>
        <h2>Contacts</h2>
-       <Filter/>
+       <Filter value={filter} filterWord={this.onChangeFilter}></Filter>
        <ContactList contacts={this.state.contacts} deleteContact={this.onDeleteContact}>
        </ContactList>
     </div>
