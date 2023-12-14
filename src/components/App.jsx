@@ -64,7 +64,8 @@ export class App extends Component{
   }
 
   render() {
-    const {filter} = this.state
+    const { filter } = this.state
+    const visibleContact = this.getVisibleContact()
     console.log('contacts :>> ', this.state)
    return (
      <div className={css.wrapper}>
